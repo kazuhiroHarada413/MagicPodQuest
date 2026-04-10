@@ -4,128 +4,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galactic Survey System | MagicPod Quest</title>
+  <title>MagicPodQuest | GSS Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <script src="common.js"></script>
 </head>
 
 <body>
 
   <header class="app-header">
-    <a href="index.html" class="brand">
+    <a href="#" class="brand">
       <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
-      <span class="brand-text">MagicPodQuest / GSS</span>
+      <span class="brand-text">MagicPodQuest</span>
     </a>
-    <div class="user-status" id="header-status">
-      <!-- Status injected via common.js -->
+    <div class="user-status">
+      <span id="progress-indicator">🟢 0/8 完了</span>
     </div>
   </header>
 
   <main class="container">
     <div class="panel">
       <div class="panel-header">
-        <h1 class="panel-title">👋 ようこそ、新人オペレーター！</h1>
+        <h1 class="panel-title">👋 MagicPod 自習教材：Galactic Survey System</h1>
       </div>
       <div class="panel-body">
-        <p>ここは銀河系外縁部の惑星探査を担う <strong>Galactic Survey System (GSS)</strong> のコンソールです。</p>
-        <p>各ミッション（ステージ）でシステムを操作しながら、MagicPodの効果的なテスト作成手法を学んでいきましょう。ミッションが成功するとテスト自動化の知見が得られます！</p>
-
-        <div class="update-history" style="margin-top: 2rem;">
-          <div><span class="version-tag">⚠️ 遊び方</span></div>
-          <div>1. 各ステージのHTMLへと進み、画面内の「更新履歴（ヒント）」を読み解く。</div>
-          <div>2. MagicPodプロジェクト内でURLを設定し、クリア条件を満たす自動テストを作成する。</div>
-          <div>3. 自動テストを実行し <b>Success!</b> となれば見事ミッションクリアです！</div>
-          <div><small style="color: #778da9;">※ 進捗はブラウザのlocalStorageに保存されるため、キャッシュを削除するとリセットされます。</small></div>
-        </div>
+        <p>ここはMagicPodの基本操作をインタラクティブに学ぶための学習コンテンツです。銀河系外縁部の惑星探査システム「<strong>Galactic Survey System
+            (GSS)</strong>」のテスト保守を題材にしています。</p>
+        <p style="margin-top: 1rem; color: var(--text-muted);">
+          あなたのミッションは、日々のバージョンアップで追加されていくWeb要素に対する自動テストを作成・保守し、システムが安定稼働することを保証することです。<br>
+          各ステージを順に追うことで、MagicPodでの<strong>「クリック」「待機」「テキスト入力」「別タブ操作」</strong>といった実践的な自動化スキルを自然に習得できます！
+        </p>
       </div>
     </div>
 
-    <h2>ミッション一覧（入門編）</h2>
+    <h2 class="brand-font"
+      style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">[Phase 1] 基礎コマンドの習得
+    </h2>
+    <div class="stage-grid" style="margin-bottom: 3rem;">
+
+      <a href="stage1.html" class="stage-card" id="card-stage1">
+        <div class="stage-badge" id="badge-stage1"></div>
+        <div class="stage-num">Stage 1</div>
+        <h3 class="stage-title">クリック操作<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(システム起動)</span></h3>
+        <p class="stage-desc">要素をクリック（タップ）して画面遷移する基本的な操作を学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
+
+      <a href="stage2.html" class="stage-card locked" id="card-stage2">
+        <div class="stage-badge" id="badge-stage2"></div>
+        <div class="stage-num">Stage 2</div>
+        <h3 class="stage-title">要素の待機<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(通信確立)</span></h3>
+        <p class="stage-desc">システムのローディング完了（特定の要素の出現）を待機する設定方法を学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
+
+      <a href="stage3.html" class="stage-card locked" id="card-stage3">
+        <div class="stage-badge" id="badge-stage3"></div>
+        <div class="stage-num">Stage 3</div>
+        <h3 class="stage-title">テキスト入力<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(探査機の命名)</span></h3>
+        <p class="stage-desc">テキストボックスへの入力方法と、入力必須エラーを回避する手順を学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
+
+      <a href="stage4.html" class="stage-card locked" id="card-stage4">
+        <div class="stage-badge" id="badge-stage4"></div>
+        <div class="stage-num">Stage 4</div>
+        <h3 class="stage-title">セレクト・ラジオ操作<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(機体の装備構成)</span></h3>
+        <p class="stage-desc">ドロップダウン（セレクト項目）やラジオボタンを選択する実務的な操作を学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
+
+    </div>
+
+    <h2 class="brand-font"
+      style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">[Phase 2]
+      特殊なUI要素の攻略</h2>
     <div class="stage-grid">
-      <!-- Stage 1 -->
-      <div class="stage-card" data-stage="1">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 1</div>
-        <h3 class="stage-title">システム起動</h3>
-        <p class="stage-desc">もっとも基本的な「クリック（タップ）」を学びます。まずはGSSを起動させましょう。</p>
-        <div class="stage-action"></div>
-      </div>
 
-      <!-- Stage 2 -->
-      <div class="stage-card" data-stage="2">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 2</div>
-        <h3 class="stage-title">通信確立</h3>
-        <p class="stage-desc">画面にボタンなどが「出現するまで待つ」テクニックを学びます。</p>
-        <div class="stage-action"></div>
-      </div>
+      <a href="stage5.html" class="stage-card locked" id="card-stage5">
+        <div class="stage-badge" id="badge-stage5"></div>
+        <div class="stage-num">Stage 5</div>
+        <h3 class="stage-title">スクロール操作<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(免責事項の同意)</span></h3>
+        <p class="stage-desc">自動スクロールを活用して、奥深くにある要素をクリックする方法を学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
 
-      <!-- Stage 3 -->
-      <div class="stage-card" data-stage="3">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 3</div>
-        <h3 class="stage-title">探査機の命名</h3>
-        <p class="stage-desc">テキストボックスへの入力方法と、入力必須バリデーションのエラー対応を学びます。</p>
-        <div class="stage-action"></div>
-      </div>
+      <a href="stage6.html" class="stage-card locked" id="card-stage6">
+        <div class="stage-badge" id="badge-stage6"></div>
+        <div class="stage-num">Stage 6</div>
+        <h3 class="stage-title">別タブ操作<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(外部星図データ)</span></h3>
+        <p class="stage-desc">リンクから開かれた別タブ（新規ウィンドウ）を操作するテクニックを学びます。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
 
-      <!-- Stage 4 -->
-      <div class="stage-card" data-stage="4">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 4</div>
-        <h3 class="stage-title">機体の装備構成</h3>
-        <p class="stage-desc">ドロップダウン（セレクト）やラジオボタンといった複雑なフォーム操作を学びます。</p>
-        <div class="stage-action"></div>
-      </div>
+      <a href="stage7.html" class="stage-card locked" id="card-stage7">
+        <div class="stage-badge" id="badge-stage7"></div>
+        <div class="stage-num">Stage 7</div>
+        <h3 class="stage-title">共有ステップ化<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(オペレーター認証)</span></h3>
+        <p class="stage-desc">全テストに共通する頻出操作をまとめて保守性を高める「共有ステップ」を作ります。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
 
-      <!-- Stage 5 -->
-      <div class="stage-card" data-stage="5">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 5</div>
-        <h3 class="stage-title">免責事項の同意</h3>
-        <p class="stage-desc">画面外にある要素を探すためのスクロールと要素の検証を学びます。</p>
-        <div class="stage-action"></div>
-      </div>
+      <a href="stage8.html" class="stage-card locked" id="card-stage8">
+        <div class="stage-badge" id="badge-stage8"></div>
+        <div class="stage-num">Stage 8</div>
+        <h3 class="stage-title">総合演習<br><span
+            style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(発射シーケンス)</span></h3>
+        <p class="stage-desc">これまで育てた自動テストケース群をそのまま通して、安定実行できるか最終チェックします。</p>
+        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+      </a>
 
-      <!-- Stage 6 -->
-      <div class="stage-card" data-stage="6">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 6</div>
-        <h3 class="stage-title">外部星図データ</h3>
-        <p class="stage-desc">リンクが別タブで開いた場合のウィンドウ切り替え操作を学びます。</p>
-        <div class="stage-action"></div>
-      </div>
-
-      <!-- Stage 7 -->
-      <div class="stage-card" data-stage="7">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 7</div>
-        <h3 class="stage-title">オペレーター認証</h3>
-        <p class="stage-desc">複数のテストを効率よく作るための「共有ステップ」の概念を学びます。</p>
-        <div class="stage-action"></div>
-      </div>
-
-      <!-- Stage 8 -->
-      <div class="stage-card" data-stage="8">
-        <div class="stage-badge"></div>
-        <div class="stage-num">STAGE 8</div>
-        <h3 class="stage-title">発射シーケンス</h3>
-        <p class="stage-desc">これまで学んだ要素をすべて組み合わせて複合テストを作成します。</p>
-        <div class="stage-action"></div>
-      </div>
     </div>
 
-    <div style="margin-top: 3rem; text-align: right;">
-      <button id="btn-reset" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">最初からやり直す
-        (データリセット)</button>
+    <div style="margin-top: 4rem; text-align: center;">
+      <button class="btn btn-secondary" onclick="ProgressManager.resetProgress(); location.reload();"
+        style="font-size: 0.8rem; border-color: var(--danger); color: var(--danger);">🚨 進捗データのリセット</button>
     </div>
 
   </main>
 
   <footer class="app-footer">
-    <p>Powered by MagicPod &copy; Galactic Survey System</p>
+    <p>Powered by MagicPod UI Simulation Engine</p>
   </footer>
 
-  <script src="common.js"></script>
 </body>
 
 </html>
