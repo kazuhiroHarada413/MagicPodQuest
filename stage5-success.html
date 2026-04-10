@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 5 Cleared | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mark stage 5 as cleared to unlock next stage
+            ProgressManager.markCleared(5);
+        });
+    </script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <a href="index.html" class="brand">
+            <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
+            <span class="brand-text">GSS | Stage 5 Success</span>
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="success-container fade-in">
+            <div class="success-icon">📜</div>
+            <h1 class="success-title">スクロール要素 成功！</h1>
+            <h2 style="color: var(--success); margin-bottom: 2rem;">クリア！</h2>
+
+            <div class="success-tips">
+                <h4>💡 MagicPod Tips</h4>
+                <p>画面外にある要素はそのままではクリックできませんが、MagicPodには「要素までスクロールする」ステップも備わっています。画面外の要素をクリックしようとすると、自動的にその要素が見える位置までスクロールする動作を取り入れてくれる場合が多いです。
+                </p>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <a href="index.html" class="btn btn-secondary">コンソールへ戻る</a>
+                <a href="stage6.html" id="btn-next-stage" class="btn btn-primary">次のステージへ</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

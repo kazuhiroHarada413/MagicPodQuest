@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 6 Cleared | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mark stage 6 as cleared to unlock next stage
+            ProgressManager.markCleared(6);
+        });
+    </script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <a href="index.html" class="brand">
+            <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
+            <span class="brand-text">GSS | Stage 6 Success</span>
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="success-container fade-in">
+            <div class="success-icon">🪟</div>
+            <h1 class="success-title">別タブ操作 成功！</h1>
+            <h2 style="color: var(--success); margin-bottom: 2rem;">クリア！</h2>
+
+            <div class="success-tips">
+                <h4>💡 MagicPod Tips</h4>
+                <p>新規タブが開くリンクをクリックすると、MagicPodは自動的に新しいタブにフォーカスを移して操作を継続します。複数ウィンドウをまたぐユーザー導線も簡単にシミュレートできることが確認できました。</p>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <a href="index.html" class="btn btn-secondary">コンソールへ戻る</a>
+                <a href="stage7.html" id="btn-next-stage" class="btn btn-primary">次のステージへ</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

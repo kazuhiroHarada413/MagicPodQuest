@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Star Map | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Record in local storage that they viewed this
+            localStorage.setItem('starmap_viewed', 'true');
+        });
+    </script>
+</head>
+
+<body style="background-color: #0b0f19;">
+
+    <main class="container" style="text-align: center; padding-top: 5rem;">
+        <h1 style="color: #4da8da; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">🌌 GSS 星図データベース</h1>
+        <h3 style="color: var(--success);" id="status">星図データロード完了</h3>
+
+        <div style="margin: 3rem 0;">
+            <pre
+                style="color: #778da9; text-align: left; background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 8px; border: 1px solid #1e293b; display: inline-block;">
+Sector: 4G-X9
+Coordinates: 144.3, 89.1, 442.0
+
+[=============================] 100%
+      </pre>
+        </div>
+
+        <p style="margin-bottom: 2rem;">データは正常に取得されました。このタブを閉じてメインシステムに戻ることができます。</p>
+    </main>
+
+</body>
+
+</html>

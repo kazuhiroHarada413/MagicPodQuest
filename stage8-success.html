@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 8 Cleared | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mark stage 8 as cleared
+            ProgressManager.markCleared(8);
+
+            // Let's also launch confetti or something conceptually
+        });
+    </script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <a href="index.html" class="brand">
+            <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
+            <span class="brand-text">GSS | All Missions Cleared!</span>
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="success-container fade-in">
+            <div class="success-icon" style="font-size: 6rem;">🎉</div>
+            <h1 class="success-title">入門編 全ミッション 成功！</h1>
+            <h2 style="color: var(--success); margin-bottom: 2rem;">GSSマスタークラス達成！</h2>
+
+            <div class="success-tips">
+                <h4 style="font-size: 1.2rem;">🌟 おめでとうございます！</h4>
+                <p>あなたは長大で複雑な発射シーケンスを、安定して実行できるテストケースとして自動化することに成功しました。これは現代の開発において非常に価値のあるスキルです。</p>
+                <p style="margin-top: 1rem;">
+                    システムのUIは改修され続けますが、安定したテストコードがあれば、バグを素早く検出し自信を持ってリリースを行うことができます。引き続きMagicPodの世界をお楽しみください！</p>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <a href="index.html" class="btn btn-primary"
+                    style="padding: 1.5rem 3rem; font-size: 1.2rem;">ミッションコンソールへ帰還</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

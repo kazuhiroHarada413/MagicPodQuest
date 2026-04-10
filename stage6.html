@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 6 | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <a href="index.html" class="brand">
+            <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
+            <span class="brand-text">GSS | Stage 6</span>
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="panel">
+            <div class="panel-header">
+                <h1 class="panel-title">🟢 Stage 6: 外部星図データ</h1>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="update-history">
+                    <div><span class="version-tag">更新履歴: v1.5</span></div>
+                    <div style="margin-top: 0.5rem">・星図データを別タブで開く仕様に変更しました。軌道計算のため、通信開始前に必ず別タブを確認してください。</div>
+                </div>
+
+                <div id="app-area"
+                    style="margin: 3rem auto; max-width: 600px; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; background: rgba(0, 0, 0, 0.3);">
+
+                    <h2
+                        style="font-family: 'Orbitron', sans-serif; color: #4da8da; margin-bottom: 2rem; text-align: center;">
+                        SPACE COM LINK</h2>
+
+                    <div id="tos-section">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 1.1rem;">利用規約・免責事項の確認</h3>
+                        <div
+                            style="height: 1200px; position: relative; background: rgba(0,0,0,0.5); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;">
+                            <div
+                                style="position: absolute; bottom: 0; width: calc(100% - 3rem); text-align: center; border-top: 1px dashed var(--border); padding: 2rem 0;">
+                                <button id="btn-agree" class="btn btn-secondary" style="padding: 1rem 3rem;"
+                                    onclick="agreeTOS()">全てに同意してシステムを開く</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="form-section" class="hidden fade-in">
+
+                        <div id="external-section"
+                            style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border); text-align: center;">
+                            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">※
+                                通信開始前に必ず外部データ（別タブ）を確認してください。</p>
+                            <a href="stage6-external.html" id="link-starmap" target="_blank" class="btn btn-secondary"
+                                style="border-color: #4da8da; color: #4da8da;">🔗 外部星図データベースを開く (別タブ)</a>
+                        </div>
+
+                        <div id="config-section"
+                            style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border);">
+                            <div class="form-group">
+                                <label class="form-label" for="target-planet">探査先 <span
+                                        style="color: var(--danger);">*</span></label>
+                                <select id="target-planet" class="form-control" style="cursor: pointer;">
+                                    <option value="">-- 行き先を選択 --</option>
+                                    <option value="Mars">火星</option>
+                                    <option value="Jupiter">木星</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-top: 1.5rem;">
+                                <label class="form-label">主動力源 <span style="color: var(--danger);">*</span></label>
+                                <div style="display: flex; gap: 2rem; margin-top: 0.5rem;">
+                                    <label><input type="radio" name="power-source" value="ソーラー"> ソーラー</label>
+                                    <label><input type="radio" name="power-source" value="RTG"> 原子力 (RTG)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="name-section" class="form-group">
+                            <label class="form-label" for="probe-name">探査機名称 <span
+                                    style="color: var(--danger);">*</span></label>
+                            <input type="text" id="probe-name" class="form-control" placeholder="例：ボイジャーX号">
+                        </div>
+
+                        <div id="action-section" style="text-align: center; margin-top: 2rem;">
+                            <button id="btn-action" class="btn btn-primary"
+                                style="padding: 1.5rem 3rem; font-size: 1.2rem;" onclick="doAction()">通信開始</button>
+                            <div id="error-msg" class="error-text"></div>
+
+                            <div id="loader" class="hidden" style="margin-top: 1rem; color: var(--primary);">
+                                <div style="font-size: 2rem; margin-bottom: 1rem; animation: bounce 1s infinite;">📡
+                                </div>
+                                <p>通信要求を送信中... 応答を待機しています</p>
+                            </div>
+
+                            <div id="result" class="hidden fade-in" style="margin-top: 2rem;">
+                                <a href="stage6-success.html" id="btn-result" class="btn btn-primary">結果を確認</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <a href="index.html" class="btn btn-secondary">← GSSコンソールへ戻る</a>
+    </footer>
+
+    <script>
+        // Reset starmap validation on page load
+        localStorage.removeItem('starmap_viewed');
+
+        function agreeTOS() {
+            document.getElementById('tos-section').classList.add('hidden');
+            document.getElementById('form-section').classList.remove('hidden');
+        }
+
+        function doAction() {
+            const errorMsg = document.getElementById('error-msg');
+
+            // v1.5 check external tab opening
+            if (localStorage.getItem('starmap_viewed') !== 'true') {
+                errorMsg.textContent = "⚠️ エラー：外部星図データベース（別タブ）を確認していません。";
+                errorMsg.classList.add('visible');
+                return;
+            }
+
+            const planetEl = document.getElementById('target-planet');
+            const powerEls = document.getElementsByName('power-source');
+            let power = Array.from(powerEls).find(el => el.checked);
+
+            if (!planetEl.value || !power) {
+                errorMsg.textContent = "⚠️ エラー：探査先と動力源を両方選択してください。";
+                errorMsg.classList.add('visible');
+                return;
+            }
+
+            const probeName = document.getElementById('probe-name').value.trim();
+            if (!probeName) {
+                errorMsg.textContent = "⚠️ エラー：探査機名称を入力してください。";
+                errorMsg.classList.add('visible');
+                return;
+            }
+
+            errorMsg.classList.remove('visible');
+            document.getElementById('btn-action').classList.add('hidden');
+            document.getElementById('loader').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+                // Clear var so it doesn't leak into next attempts
+                localStorage.removeItem('starmap_viewed');
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

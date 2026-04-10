@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 2 | GSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <a href="index.html" class="brand">
+            <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
+            <span class="brand-text">GSS | Stage 2</span>
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="panel">
+            <div class="panel-header">
+                <h1 class="panel-title">🟡 Stage 2: 通信確立</h1>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="update-history">
+                    <div><span class="version-tag">更新履歴: v1.1</span></div>
+                    <div style="margin-top: 0.5rem">・通信エラーを防ぐため、接続確立に3秒の待機時間（ローディング）を追加しました。通信の完了後に結果ページへ進んでください。</div>
+                </div>
+
+                <div id="app-area"
+                    style="margin: 3rem auto; max-width: 600px; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; background: rgba(0, 0, 0, 0.3);">
+
+                    <h2
+                        style="font-family: 'Orbitron', sans-serif; color: #4da8da; margin-bottom: 2rem; text-align: center;">
+                        SPACE COM LINK</h2>
+
+                    <div id="action-section" style="text-align: center; margin-top: 2rem;">
+                        <button id="btn-action" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem;"
+                            onclick="doAction()">通信開始</button>
+                        <div id="error-msg" class="error-text"></div>
+
+                        <div id="loader" class="hidden" style="margin-top: 1rem; color: var(--primary);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem; animation: bounce 1s infinite;">📡</div>
+                            <p>通信要求を送信中... 応答を待機しています</p>
+                        </div>
+
+                        <div id="result" class="hidden fade-in" style="margin-top: 2rem;">
+                            <a href="stage2-success.html" id="btn-result" class="btn btn-primary">結果を確認</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <a href="index.html" class="btn btn-secondary">← GSSコンソールへ戻る</a>
+    </footer>
+
+    <script>
+        function doAction() {
+            // v1.1: Click shows loader for 3 seconds, then shows btn-result
+            document.getElementById('btn-action').classList.add('hidden');
+            document.getElementById('loader').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>
