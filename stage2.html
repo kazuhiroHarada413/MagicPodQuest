@@ -39,17 +39,19 @@
                         SPACE COM LINK</h2>
 
                     <div id="action-section" style="text-align: center; margin-top: 2rem;">
-                        <button id="btn-action" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem;"
-                            onclick="doAction()">通信開始</button>
+                        <button id="btn-boot" class="btn btn-secondary"
+                            style="padding: 1rem 2rem; font-size: 1.1rem; margin-bottom: 1rem;"
+                            onclick="doBoot()">システム起動</button>
                         <div id="error-msg" class="error-text"></div>
 
                         <div id="loader" class="hidden" style="margin-top: 1rem; color: var(--primary);">
                             <div style="font-size: 2rem; margin-bottom: 1rem; animation: bounce 1s infinite;">📡</div>
-                            <p>通信要求を送信中... 応答を待機しています</p>
+                            <p>システム起動処理中... 待機してください</p>
                         </div>
 
                         <div id="result" class="hidden fade-in" style="margin-top: 2rem;">
-                            <a href="stage2-success.html" id="btn-result" class="btn btn-primary">結果を確認</a>
+                            <a href="stage2-success.html" id="btn-action" class="btn btn-primary"
+                                style="padding: 1.5rem 3rem; font-size: 1.2rem;">通信開始</a>
                         </div>
                     </div>
 
@@ -63,9 +65,9 @@
     </footer>
 
     <script>
-        function doAction() {
-            // v1.1: Click shows loader for 3 seconds, then shows btn-result
-            document.getElementById('btn-action').classList.add('hidden');
+        function doBoot() {
+            // v1.1: Click boot shows loader, then btn-action
+            document.getElementById('btn-boot').classList.add('hidden');
             document.getElementById('loader').classList.remove('hidden');
 
             setTimeout(() => {
