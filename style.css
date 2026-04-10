@@ -22,17 +22,23 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: 
+  background-image:
     radial-gradient(circle at 15% 50%, rgba(36, 184, 87, 0.05), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(27, 38, 59, 0.5), transparent 25%);
 }
 
-h1, h2, h3, h4, h5, h6, .brand-font {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
@@ -350,13 +356,27 @@ a:hover {
 
 /* Animations */
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fade-in {
