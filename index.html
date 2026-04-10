@@ -17,7 +17,7 @@
       <span class="brand-text">MagicPodQuest</span>
     </a>
     <div class="user-status">
-      <span id="progress-indicator">🟢 0/8 完了</span>
+      <span id="header-status">🟢 0/8 完了</span>
     </div>
   </header>
 
@@ -36,94 +36,96 @@
       </div>
     </div>
 
+    <!-- Phase 1 -->
     <h2 class="brand-font"
       style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">[Phase 1] 基礎コマンドの習得
     </h2>
     <div class="stage-grid" style="margin-bottom: 3rem;">
 
-      <a href="stage1.html" class="stage-card" id="card-stage1">
+      <a href="stage1.html" class="stage-card" id="card-stage1" data-stage="1">
         <div class="stage-badge" id="badge-stage1"></div>
         <div class="stage-num">Stage 1</div>
         <h3 class="stage-title">クリック操作<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(システム起動)</span></h3>
         <p class="stage-desc">要素をクリック（タップ）して画面遷移する基本的な操作を学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage2.html" class="stage-card locked" id="card-stage2">
+      <a href="stage2.html" class="stage-card locked" id="card-stage2" data-stage="2">
         <div class="stage-badge" id="badge-stage2"></div>
         <div class="stage-num">Stage 2</div>
         <h3 class="stage-title">要素の待機<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(通信確立)</span></h3>
         <p class="stage-desc">システムのローディング完了（特定の要素の出現）を待機する設定方法を学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage3.html" class="stage-card locked" id="card-stage3">
+      <a href="stage3.html" class="stage-card locked" id="card-stage3" data-stage="3">
         <div class="stage-badge" id="badge-stage3"></div>
         <div class="stage-num">Stage 3</div>
         <h3 class="stage-title">テキスト入力<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(探査機の命名)</span></h3>
         <p class="stage-desc">テキストボックスへの入力方法と、入力必須エラーを回避する手順を学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage4.html" class="stage-card locked" id="card-stage4">
+      <a href="stage4.html" class="stage-card locked" id="card-stage4" data-stage="4">
         <div class="stage-badge" id="badge-stage4"></div>
         <div class="stage-num">Stage 4</div>
         <h3 class="stage-title">セレクト・ラジオ操作<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(機体の装備構成)</span></h3>
         <p class="stage-desc">ドロップダウン（セレクト項目）やラジオボタンを選択する実務的な操作を学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
     </div>
 
+    <!-- Phase 2 -->
     <h2 class="brand-font"
       style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">[Phase 2]
       特殊なUI要素の攻略</h2>
     <div class="stage-grid">
 
-      <a href="stage5.html" class="stage-card locked" id="card-stage5">
+      <a href="stage5.html" class="stage-card locked" id="card-stage5" data-stage="5">
         <div class="stage-badge" id="badge-stage5"></div>
         <div class="stage-num">Stage 5</div>
         <h3 class="stage-title">スクロール操作<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(免責事項の同意)</span></h3>
         <p class="stage-desc">自動スクロールを活用して、奥深くにある要素をクリックする方法を学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage6.html" class="stage-card locked" id="card-stage6">
+      <a href="stage6.html" class="stage-card locked" id="card-stage6" data-stage="6">
         <div class="stage-badge" id="badge-stage6"></div>
         <div class="stage-num">Stage 6</div>
         <h3 class="stage-title">別タブ操作<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(外部星図データ)</span></h3>
         <p class="stage-desc">リンクから開かれた別タブ（新規ウィンドウ）を操作するテクニックを学びます。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage7.html" class="stage-card locked" id="card-stage7">
+      <a href="stage7.html" class="stage-card locked" id="card-stage7" data-stage="7">
         <div class="stage-badge" id="badge-stage7"></div>
         <div class="stage-num">Stage 7</div>
         <h3 class="stage-title">共有ステップ化<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(オペレーター認証)</span></h3>
         <p class="stage-desc">全テストに共通する頻出操作をまとめて保守性を高める「共有ステップ」を作ります。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
-      <a href="stage8.html" class="stage-card locked" id="card-stage8">
+      <a href="stage8.html" class="stage-card locked" id="card-stage8" data-stage="8">
         <div class="stage-badge" id="badge-stage8"></div>
         <div class="stage-num">Stage 8</div>
         <h3 class="stage-title">総合演習<br><span
             style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(発射シーケンス)</span></h3>
         <p class="stage-desc">これまで育てた自動テストケース群をそのまま通して、安定実行できるか最終チェックします。</p>
-        <div class="stage-action"><span class="btn btn-secondary" style="width: 100%;">アクセス</span></div>
+        <div class="stage-action"></div>
       </a>
 
     </div>
 
     <div style="margin-top: 4rem; text-align: center;">
-      <button class="btn btn-secondary" onclick="ProgressManager.resetProgress(); location.reload();"
+      <button id="btn-reset" class="btn btn-secondary"
         style="font-size: 0.8rem; border-color: var(--danger); color: var(--danger);">🚨 進捗データのリセット</button>
     </div>
 
