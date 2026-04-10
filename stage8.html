@@ -4,194 +4,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage 8 | GSS</title>
+    <title>MagicPodQuest | Stage 8</title>
     <link rel="stylesheet" href="style.css">
     <script src="common.js"></script>
 </head>
 
 <body>
-
     <header class="app-header">
         <a href="index.html" class="brand">
             <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
-            <span class="brand-text">GSS | Stage 8</span>
+            <span class="brand-text">MagicPodQuest</span>
         </a>
+        <div class="user-status">
+            <span id="header-status">🟢 0/8 完了</span>
+        </div>
     </header>
 
     <main class="container">
         <div class="panel">
             <div class="panel-header">
-                <h1 class="panel-title">🟢 Stage 8: 総合演習 <span
-                        style="font-size: 0.6em; margin-left: 1rem; color: var(--text-muted);">(発射シーケンス総まとめ)</span></h1>
+                <h1 class="panel-title">🟢 Stage 8: マウスオーバー <span
+                        style="font-size: 0.6em; margin-left: 1rem; color: var(--text-muted);">(隠しパスコード)</span></h1>
             </div>
 
             <div class="panel-body">
-
                 <div class="update-history">
-                    <div><span class="version-tag">更新履歴: v2.0</span></div>
-                    <div style="margin-top: 0.5rem">
-                        ・全ての手順を自動化してください。UIの変更はありませんが、これまで育てたテストケースが最初から最後までエラーなく通るかどうかが最後の試練です。</div>
+                    <span class="version-tag">v1.7:</span> セキュリティパネルを追加しました。センサー部分にマウスを重ねて、隠しパスコードパネルを展開してください。<br>
+                    <span
+                        style="color: var(--danger); font-size: 0.9em;">※「マウスオーバー」または「指定位置クリック」を使って隠し要素を表示させましょう。</span>
                 </div>
 
-                <div id="app-area"
-                    style="margin: 3rem auto; max-width: 600px; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; background: rgba(0, 0, 0, 0.3);">
-
-                    <h2
-                        style="font-family: 'Orbitron', sans-serif; color: #4da8da; margin-bottom: 2rem; text-align: center;">
-                        SPACE COM LINK</h2>
-
-                    <div id="login-section"
-                        style="background: rgba(0, 0, 0, 0.4); padding: 2rem; border-radius: 8px; border: 1px solid var(--border);">
-                        <div class="form-group">
-                            <label class="form-label" for="login-id">オペレーターID</label>
-                            <input type="text" id="login-id" class="form-control" value="admin_operator">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="login-pass">パスワード</label>
-                            <input type="password" id="login-pass" class="form-control" value="Stardust2024!">
-                        </div>
-                        <div id="login-error-msg" class="error-text">⚠️ 認証失敗: IDまたはパスワードが正しくありません</div>
-                        <button id="btn-login" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"
-                            onclick="attemptLogin()">システムへログイン</button>
+                <div class="form-group">
+                    <label class="form-label" for="probe-name">探査機名</label>
+                    <input type="text" id="probe-name" class="form-control" value="Auto-Probe-X" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <label class="form-label" for="target-planet">探査先</label>
+                        <select id="target-planet" class="form-control" required>
+                            <option value="mars" selected>火星 (Mars)</option>
+                            <option value="jupiter">木星 (Jupiter)</option>
+                        </select>
                     </div>
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label class="form-label">動力源</label>
+                    <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
+                        <label style="cursor: pointer;"><input type="radio" name="power-source" value="solar" checked>
+                            ソーラーパネル</label>
+                        <label style="cursor: pointer;"><input type="radio" name="power-source" value="nuclear">
+                            原子力電池</label>
+                    </div>
+                </div>
 
-                    <div id="main-section" class="hidden fade-in">
-                        <div id="tos-section">
-                            <h3 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 1.1rem;">利用規約・免責事項の確認
-                            </h3>
-                            <div
-                                style="height: 1200px; position: relative; background: rgba(0,0,0,0.5); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;">
-                                <div
-                                    style="position: absolute; bottom: 0; width: calc(100% - 3rem); text-align: center; border-top: 1px dashed var(--border); padding: 2rem 0;">
-                                    <button id="btn-agree" class="btn btn-secondary" style="padding: 1rem 3rem;"
-                                        onclick="agreeTOS()">全てに同意してシステムを開く</button>
-                                </div>
+                <hr style="border: none; border-top: 1px solid var(--border); margin: 2rem 0;">
+
+                <div style="margin-top: 1rem;">
+                    <div id="hover-sensor"
+                        style="background-color: var(--bg-color-alt); border: 2px dashed var(--primary); padding: 1.5rem; text-align: center; border-radius: 8px; cursor: crosshair;">
+                        <span style="font-family: 'Orbitron', sans-serif;">[HOVER ZONE] ここにマウスを重ねる</span>
+
+                        <div id="hidden-panel" class="hidden"
+                            style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(0,0,0,0.5); border-radius: 8px; text-align: left;">
+                            <label class="form-label" for="passcode">パスコード入力</label>
+                            <div style="display: flex; gap: 1rem;">
+                                <input type="password" id="passcode" class="form-control" placeholder="何でもOK" required>
+                                <button class="btn btn-secondary" id="btn-override">ロック解除</button>
                             </div>
-                        </div>
-
-                        <div id="form-section" class="hidden fade-in">
-                            <div id="external-section"
-                                style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border); text-align: center;">
-                                <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">※
-                                    通信開始前に必ず外部データ（別タブ）を確認してください。</p>
-                                <a href="stage6-external.html" id="link-starmap" target="_blank"
-                                    class="btn btn-secondary" style="border-color: #4da8da; color: #4da8da;">🔗
-                                    外部星図データベースを開く (別タブ)</a>
-                            </div>
-
-                            <div id="config-section"
-                                style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border);">
-                                <div class="form-group">
-                                    <label class="form-label" for="target-planet">探査先 <span
-                                            style="color: var(--danger);">*</span></label>
-                                    <select id="target-planet" class="form-control" style="cursor: pointer;">
-                                        <option value="">-- 行き先を選択 --</option>
-                                        <option value="Mars">火星</option>
-                                        <option value="Jupiter">木星</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" style="margin-top: 1.5rem;">
-                                    <label class="form-label">主動力源 <span style="color: var(--danger);">*</span></label>
-                                    <div style="display: flex; gap: 2rem; margin-top: 0.5rem;">
-                                        <label><input type="radio" name="power-source" value="ソーラー"> ソーラー</label>
-                                        <label><input type="radio" name="power-source" value="RTG"> 原子力 (RTG)</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="name-section" class="form-group">
-                                <label class="form-label" for="probe-name">探査機名称 <span
-                                        style="color: var(--danger);">*</span></label>
-                                <input type="text" id="probe-name" class="form-control">
-                            </div>
-
-                            <div id="action-section" style="text-align: center; margin-top: 2rem;">
-                                <button id="btn-boot" class="btn btn-secondary"
-                                    style="padding: 1rem 2rem; font-size: 1.1rem; margin-bottom: 1rem;"
-                                    onclick="doBoot()">システム起動</button>
-                                <div id="error-msg" class="error-text"></div>
-
-                                <div id="loader" class="hidden" style="margin-top: 1rem; color: var(--primary);">
-                                    <div style="font-size: 2rem; margin-bottom: 1rem; animation: bounce 1s infinite;">📡
-                                    </div>
-                                    <p>システム起動処理中... 待機してください</p>
-                                </div>
-
-                                <div id="result" class="hidden fade-in" style="margin-top: 2rem;">
-                                    <a href="stage8-success.html" id="btn-action" class="btn btn-primary"
-                                        style="padding: 1.5rem 3rem; font-size: 1.2rem;">通信開始</a>
-                                </div>
-                            </div>
+                            <div id="error-passcode" class="error-text">⚠️ パスコードが未入力です</div>
                         </div>
                     </div>
+                </div>
 
+                <div style="text-align: right; margin-top: 2rem;">
+                    <div id="loading-indicator" class="hidden fade-in"
+                        style="display: none; justify-content: flex-end; align-items: center; gap: 1rem; color: var(--primary);">
+                        <span>📡 パスコード検証中...</span>
+                        <div class="spinner"
+                            style="width: 20px; height: 20px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite;">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary hidden fade-in" id="btn-action" style="margin-top: 1rem;">🚀
+                        発射シーケンス開始 (クリア)</button>
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="app-footer">
-        <a href="index.html" class="btn btn-secondary">← GSSコンソールへ戻る</a>
+        <p>Powered by MagicPod UI Simulation Engine</p>
     </footer>
 
+    <style>
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
     <script>
-        localStorage.removeItem('starmap_viewed');
+        document.addEventListener('DOMContentLoaded', () => {
+            const sensor = document.getElementById('hover-sensor');
+            const hiddenPanel = document.getElementById('hidden-panel');
+            const btnOverride = document.getElementById('btn-override');
+            const passcode = document.getElementById('passcode');
+            const errorPasscode = document.getElementById('error-passcode');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const btnAction = document.getElementById('btn-action');
 
-        function attemptLogin() {
-            const id = document.getElementById('login-id').value;
-            const pass = document.getElementById('login-pass').value;
-            const errorMsg = document.getElementById('login-error-msg');
+            let isUnlocked = false;
 
-            if (id === "admin_operator" && pass === "Stardust2024!") {
-                errorMsg.classList.remove('visible');
-                document.getElementById('login-section').classList.add('hidden');
-                document.getElementById('main-section').classList.remove('hidden');
-            } else {
-                errorMsg.classList.add('visible');
-            }
-        }
+            sensor.addEventListener('mouseenter', () => {
+                hiddenPanel.classList.remove('hidden');
+            });
+            // Intentionally not handling mouseleave so the panel stays open to type.
 
-        function agreeTOS() {
-            document.getElementById('tos-section').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
-        }
+            btnOverride.addEventListener('click', () => {
+                if (passcode.value.length > 0) {
+                    errorPasscode.classList.remove('visible');
 
-        function doBoot() {
-            const errorMsg = document.getElementById('error-msg');
-            if (localStorage.getItem('starmap_viewed') !== 'true') {
-                errorMsg.textContent = "⚠️ エラー：外部星図データベース（別タブ）を確認していません。";
-                errorMsg.classList.add('visible');
-                return;
-            }
-            const planetEl = document.getElementById('target-planet');
-            const powerEls = document.getElementsByName('power-source');
-            let power = Array.from(powerEls).find(el => el.checked);
+                    const confirmed = confirm("⚠️ 警告：機密エリアへのアクセスです。本当に解除しますか？");
+                    if (confirmed) {
+                        isUnlocked = true;
+                        loadingIndicator.classList.remove('hidden');
+                        loadingIndicator.style.display = 'flex';
+                        btnOverride.classList.add('hidden');
+                        passcode.disabled = true;
 
-            if (!planetEl.value || !power) {
-                errorMsg.textContent = "⚠️ エラー：探査先と動力源を両方選択してください。";
-                errorMsg.classList.add('visible');
-                return;
-            }
+                        setTimeout(() => {
+                            loadingIndicator.style.display = 'none';
+                            loadingIndicator.classList.add('hidden');
+                            btnAction.classList.remove('hidden');
+                        }, 3000);
+                    }
+                } else {
+                    errorPasscode.classList.add('visible');
+                }
+            });
 
-            const probeName = document.getElementById('probe-name').value.trim();
-            if (!probeName) {
-                errorMsg.textContent = "⚠️ エラー：探査機名称を入力してください。";
-                errorMsg.classList.add('visible');
-                return;
-            }
-
-            errorMsg.classList.remove('visible');
-            document.getElementById('btn-boot').classList.add('hidden');
-            document.getElementById('loader').classList.remove('hidden');
-
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-                document.getElementById('result').classList.remove('hidden');
-                localStorage.removeItem('starmap_viewed');
-            }, 3000);
-        }
+            btnAction.addEventListener('click', () => {
+                if (isUnlocked) {
+                    window.location.href = 'stage8-success.html';
+                }
+            });
+        });
     </script>
-
 </body>
 
 </html>

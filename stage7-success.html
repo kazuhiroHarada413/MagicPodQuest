@@ -4,45 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage 7 Cleared | GSS</title>
+    <title>MagicPodQuest | Stage 7 クリア</title>
     <link rel="stylesheet" href="style.css">
     <script src="common.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mark stage 7 as cleared to unlock next stage
-            ProgressManager.markCleared(7);
-        });
-    </script>
 </head>
 
 <body>
-
     <header class="app-header">
         <a href="index.html" class="brand">
             <img src="images/icon-magicpod-color.svg" alt="MagicPod Logo">
-            <span class="brand-text">GSS | Stage 7 Success</span>
+            <span class="brand-text">MagicPodQuest</span>
         </a>
     </header>
 
     <main class="container">
         <div class="success-container fade-in">
-            <div class="success-icon">🔑</div>
-            <h1 class="success-title">共有ステップ化 成功！</h1>
+            <div class="success-icon">⚠️</div>
+            <h1 class="success-title">アラート操作 成功！</h1>
             <h2 id="stage-clear" style="color: var(--success); margin-bottom: 2rem;">クリア！</h2>
 
             <div class="success-tips">
-                <h4>💡 MagicPod Tips</h4>
-                <p>「ログイン」など複数のテストで繰り返し使われる一連の操作は、<b>共有ステップ</b>
-                    として共通化することで、メンテナンスが一気に楽になります。もしIDの入力欄の画面仕様が変わったとしても、共有ステップを1箇所直すだけで全てのテストが修正されます。</p>
+                <h4>💡 MagicPod攻略のヒント</h4>
+                <p>ブラウザ標準のアラート（ポップアップ）は通常のUI操作では取得できないため、専用の<strong>「アラートのOKボタンを押す」コマンド</strong>が用意されています。<br>このコマンドはアラートが表示される「直後」に配置することで動作します！
+                </p>
             </div>
 
-            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                <a href="index.html" class="btn btn-secondary">コンソールへ戻る</a>
-                <a href="stage8.html" id="btn-next-stage" class="btn btn-primary">最終ステージへ</a>
-            </div>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">次のミッションへ戻る</a>
         </div>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            ProgressManager.markCleared(7);
+        });
+    </script>
 </body>
 
 </html>
